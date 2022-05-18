@@ -1,22 +1,7 @@
-CC = gcc
-SRC = $(wildcard *.c)
-OBJ = $(SRC:.c=.o)
-NAME = hsh
-CFLAGS = -Wall -Werror -Wextra -pedantic
-RM = rm -f
-.PHONY: all clean oclean fclean re
+all: shell
 
-all: $(OBJ)
-	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
+shell: 537sh.c
+	gcc 537sh.c -o 537sh
+	
 clean:
-	$(RM) *~
-	$(RM) *.swp
-	$(RM) $(NAME)
-oclean:
-	$(RM) $(OBJ)
-fclean:
-	$(RM) *~
-	$(RM) *.swp
-	$(RM) $(NAME)
-	$(RM) $(OBJ)
-re: fclean all
+	rm -f *.o 537sh
